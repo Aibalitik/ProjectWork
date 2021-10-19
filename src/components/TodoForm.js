@@ -1,29 +1,29 @@
 import React from 'react';
 
-import {TextField} from "@mui/material";
-import State from "./UseInoutState";
+import {Button, TextField} from "@mui/material";
+import useFormFieldState from "../hooks/useFormFieldState";
 
 const TodoForm = ({ saveTodo }) => {
-    const { value, reset, onChange } = State();
+    const { value, reset, onChange } = useFormFieldState();
 
     return (
         <form
+            className={'form'}
             onSubmit={event => {
                 event.preventDefault();
-
                 saveTodo(value);
                 reset();
             }}
         >
             <TextField
-                color="error"
                 margin="normal"
                 variant="outlined"
                 placeholder="Write your task"
                 onChange={onChange}
                 value={value}
-                sx={{ width:'20%' }}
+                required
             />
+            <Button variant="outlined" size={'large'} type='submit'>Add</Button>
         </form>
     );
 };

@@ -2,15 +2,16 @@ import React from 'react';
 import {Button, Checkbox, IconButton, List, ListItem, ListItemSecondaryAction, ListItemText} from "@mui/material";
 import { Icon } from '@iconify/react';
 import trashFill from '@iconify/icons-eva/trash-fill';
-const TodoList = ({ todos, deleteTodo }) => (
+
+const TodoList = ({ todos, deleteTodo, toggleCheck }) => (
     <List>
-        {todos.map((todo, index) => (
-            <ListItem key={index.toString()} dense button>
-                <Checkbox size="medium" tabIndex={-1} disableRipple />
-                <ListItemText primary={todo} />
+        {todos.map((todo) => (
+            <ListItem key={todo.id} dense button onClick={() => toggleCheck(todo.id)}>
+                <Checkbox size="medium" checked={todo.checked}/>
+                <ListItemText className={todo.checked && 'checked-text'} primary={todo.name} />
                 <ListItemSecondaryAction>
                     <Button onClick={() => {
-                        deleteTodo(index);
+                        deleteTodo(todo.id);
                     }}>
                         <Icon icon={trashFill} height={20} width={20} color="#A9A9A9" />
                     </Button>
