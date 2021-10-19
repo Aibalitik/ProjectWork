@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import useTodoState from "./components/useTodoState";
+import {Button, Container, Stack, Typography} from "@mui/material";
+import TodoForm from "./components/TodoForm";
+import TodoList from "./components/TodoList";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+    const { todos, addTodo, deleteTodo } = useTodoState([]);
+
+    return (
+        <Stack sx={{ textAlign:"center", mt: 5 }}>
+            <Typography variant="h5">
+                What task do you have for today?
+            </Typography>
+
+                <TodoForm
+                    saveTodo={todoText => {
+                        const trimmedText = todoText.trim();
+
+                        if (trimmedText.length > 0) {
+                            addTodo(trimmedText);
+                        }
+                    }}
+                />
+
+            <TodoList todos={todos} deleteTodo={deleteTodo} />
+        </Stack>
+    );
 }
-
-export default App;
