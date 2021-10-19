@@ -6,7 +6,7 @@ const TodoList = ({ todos, deleteTodo }) => (
     <List>
         {todos.map((todo, index) => (
             <ListItem key={index.toString()} dense button>
-                <Checkbox size="medium" color="error" tabIndex={-1} disableRipple />
+                <Checkbox size="medium" color="warning" tabIndex={-1} disableRipple />
                 <ListItemText primary={todo} />
                 <ListItemSecondaryAction>
                     <Button onClick={() => {
