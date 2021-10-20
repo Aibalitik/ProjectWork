@@ -13,8 +13,8 @@ export default initialValue => {
                 return todo
             }));
         },
-        addTodo: todoText => {
-            setTodos([...todos, {id: todos.length + 1, name: todoText, checked: false}]);
+        addTodo: (value, date) => {
+            setTodos([...todos, {id: todos.length + 1, name: value, date, checked: false}]);
         },
         deleteTodo: todoIndex => {
             setTodos(todos.filter(todo => todo.id !== todoIndex));

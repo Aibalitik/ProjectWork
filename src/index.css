@@ -19,13 +19,13 @@ code {
 }
 
 .form button {
-  margin-left: 1rem;
+  margin-left: 10px;
   line-height: 2.5rem;
   margin-top: 7px;
 }
 
 .stack {
-  max-width: 375px;
+  max-width: 550px;
   padding: 25px;
   margin: 5rem auto 5rem auto;
   text-align: center;
