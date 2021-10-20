@@ -23,7 +23,7 @@ const TodoForm = ({ saveTodo }) => {
                 value={value}
                 required
             />
-            <Button variant="outlined" size={'large'} type='submit'>Add</Button>
+            <Button variant="contained" size={'large'} type='submit'>Add</Button>
         </form>
     );
 };
